@@ -20,6 +20,14 @@ jobs:
             - run: pnpm install
             - run: pnpm lint
 
-    # deploy:
-    #     runs-on: ubuntu-latest
-    #     steps:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: nexterias/actions-vercel@v1
+              with:
+                  token: ${{ secrets.VERCEL_TOKEN }}
+                  project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+                  production: ${{ github.ref == 'refs/heads/main' }}
+                  prebuilt: false # If set to true, build will be performed using GitHub Actions.
+
