@@ -27,7 +27,7 @@ jobs:
             - uses: nexterias/actions-vercel@v1
               with:
                   token: ${{ secrets.VERCEL_TOKEN }}
-                  vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+                  org-id: ${{ secrets.VERCEL_ORG_ID }}
                   project-id: ${{ secrets.VERCEL_PROJECT_ID }}
                   production: ${{ github.ref == 'refs/heads/main' }}
                   prebuilt: false # If set to true, build will be performed using GitHub Actions.
